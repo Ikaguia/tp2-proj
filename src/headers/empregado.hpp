@@ -7,6 +7,7 @@
 
 
 namespace grupoBatata{
+
 	class Tempregado : Tpessoa{
 	public:
 		Tempregado();

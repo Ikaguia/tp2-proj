@@ -2,9 +2,10 @@
 #define HPP_EMPREGADO
 
 #include <common.hpp>
-#include <empregado.hpp>
 
 namespace grupoBatata{
+	class empregado;
+
 	class Tempresa{
 	public:
 		enum Esetor{
@@ -14,6 +15,7 @@ namespace grupoBatata{
 			normatividade,
 			design,
 			outro,
+			count,
 		};
 		enum Ecargo{
 			auxiliar,
@@ -22,7 +24,9 @@ namespace grupoBatata{
 			diretor_setor,
 			diretor_operacoes,
 			diretor_exec,
+			count,
 		}
+		static const array<bitset<Tpessoa::Equalificacao::count>, Esetor::count> qualsPorSetor;
 
 		Tempresa();
 
