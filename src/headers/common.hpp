@@ -19,7 +19,7 @@ using namespace std;
 
 using ll = long long;
 using llu = unsigned ll;
-using uint = unsigned;
+using uint = unsigned int;
 using ii = pair<int,int>;
 
 
@@ -27,6 +27,11 @@ using ii = pair<int,int>;
 
 #define DATA_PATH "data"
 
-
+template <class T> std::istream& operator >>(std::istream& is, T& t){
+    int i;
+    is >> i;
+    t = static_cast<T>(i);
+    return is;
+}
 
 #endif//COMMON_HPP

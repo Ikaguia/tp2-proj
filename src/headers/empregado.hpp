@@ -10,13 +10,15 @@ namespace grupoBatata{
 
 	class Tempregado : Tpessoa{
 	public:
-		Tempregado();
+		Tempregado()=default;
+		Tempregado(const string&);
+		Tempregado& operator=(const Tempregado&);
 
-		const data &getEntrada()const;
-		const uint &getID()const;
-		const uint &getSalario()const;
-		const Tempresa::Esetor &getSetor()const;
-		const Tempresa::Ecargo &getCargo()const;
+		const data &entrada = the_entrada;
+		const uint &id = the_id;
+		const uint &salario = the_salario;
+		const Tempresa::Esetor &setor = the_setor;
+		const Tempresa::Ecargo &cargo = the_cargo;
 
 		void setEntrada(const data&);
 		void setID(const uint&);
@@ -24,10 +26,10 @@ namespace grupoBatata{
 		void setSetor(const Tempresa::Esetor&);
 		void setCargo(const Tempresa::Ecargo&);
 	private:
-		data entrada;
-		uint id,salario;
-		Tempresa::Esetor setor;
-		Tempresa::Ecargo cargo;
+		data the_entrada;
+		uint the_id, the_salario;
+		Tempresa::Esetor the_setor;
+		Tempresa::Ecargo the_cargo;
 	};
 };
 

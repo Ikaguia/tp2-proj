@@ -6,7 +6,7 @@
 namespace grupoBatata{
 	struct data{
 		uint dia, mes, ano;
-		uint tempo()const;
+		uint idade() const;
 	};
 };
 

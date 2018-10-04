@@ -2,11 +2,12 @@
 #define HPP_PESSOA
 
 #include <common.hpp>
+#include <data.hpp>
 
 namespace grupoBatata{
 	class Tpessoa{
 	public:
-		enum qualificacao{
+		enum Equalificacao_tipo{
 			administrador,
 			contador,
 			economista,
@@ -18,26 +19,30 @@ namespace grupoBatata{
 			advogado,
 			design_grafico,
 			design_multimidia,
-			eng_social,
-			count
-		}
+			eng_social
+		};
+		enum Equalificacao_nivel{
+			auxiliar,
+			tecnico,
+			profissional
+		};
 
-		Tpessoa();
+		// Tpessoa()=default;
 
-		const string &getNome()const;
-		const bool &getSexo()const;
-		const data &getNascimento()const;
-		const uint &getIdade()const;
-		const string &getCPF()const;
-		const bool &getEQualificado(const qualificacao&)const;
+		const string &nome = the_nome;
+		const bool &sexo = the_sexo;
+		const data &nascimento = the_nascimento;
+		const string &cpf = the_cpf;
+		uint getIdade() const;
+		const Equalificacao_nivel &getQualificacao(const Equalificacao_tipo&) const;
 
-		void setEQualificado(const qualificacao&, const bool&);
+		void setQualificacao(const Equalificacao_tipo&, const Equalificacao_nivel&);
 	private:
-		string nome;
-		bool sexo;
-		data nascimento;
-		string cpf;
-		bitset<qualificacao::count> qualificacoes;
+		string the_nome;
+		bool the_sexo;
+		data the_nascimento;
+		string the_cpf;
+		map<Equalificacao_tipo, Equalificacao_nivel> qualificacoes;
 	};
 };
 
