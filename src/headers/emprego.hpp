@@ -4,30 +4,30 @@
 #include <common.hpp>
 #include <pessoa.hpp>
 #include <empresa.hpp>
+#include <resourceManager.hpp>
 
 
 namespace grupoBatata{
 
-	class Tempregado : Tpessoa{
+	class Temprego{
 	public:
-		Tempregado()=default;
-		Tempregado(const string&);
-		Tempregado& operator=(const Tempregado&);
-
+		//construtores / destrutores
+		// Temprego()=default;
+		//getters
 		const data &entrada = the_entrada;
-		const uint &id = the_id;
 		const uint &salario = the_salario;
 		const Tempresa::Esetor &setor = the_setor;
 		const Tempresa::Ecargo &cargo = the_cargo;
-
+		//setters
 		void setEntrada(const data&);
-		void setID(const uint&);
 		void setSalario(const uint&);
 		void setSetor(const Tempresa::Esetor&);
 		void setCargo(const Tempresa::Ecargo&);
-	private:
+		//operators
+		Temprego& operator=(const Temprego&);
+	protected:
 		data the_entrada;
-		uint the_id, the_salario;
+		uint the_salario;
 		Tempresa::Esetor the_setor;
 		Tempresa::Ecargo the_cargo;
 	};

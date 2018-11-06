@@ -2,10 +2,11 @@
 #define HPP_EMPRESA
 
 #include <common.hpp>
+#include <resourceManager.hpp>
 #include <pessoa.hpp>
 
 namespace grupoBatata{
-	class Tempregado;
+	class Temprego;
 
 	class Tempresa{
 	public:
@@ -28,14 +29,23 @@ namespace grupoBatata{
 		};
 		static const map<Esetor, set<Tpessoa::Equalificacao_tipo>> requisitos_setor;
 
-		void addEmpregado(const Tempregado &empregado);
-		void addEmpregado(const string &empregado);
-		void removeEmpregado(const uint &id);
-		string runCommand(const vector<string> &args);
-
-		Tempregado &getEmpregado(const uint &id);
+		//construtores / destrutores
+		Tempresa(const string&);
+		//getters
+		const string &nome = the_nome;
+		const map<Tpessoa, Temprego> &getEmpregos() const;
+		Temprego &getEmprego(const Tpessoa&);
+		//setters
+		void setNome(const string&);
+		void setEmprego(const Tpessoa&, const Temprego&);
+		//outros
+		void addEmpregado(const Tpessoa&, const Temprego&);
+		void delEmpregado(const Tpessoa&);
+		//manager
+		static TresourceManager<string, Tempresa> manager;
 	private:
-		map<uint, Tempregado> empregados;
+		string the_nome;
+		map<Tpessoa, Temprego> empregados;
 	};
 };
 

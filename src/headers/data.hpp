@@ -7,6 +7,7 @@ namespace grupoBatata{
 	struct data{
 		uint dia, mes, ano;
 		uint idade() const;
+		bool operator<(const data&) const;
 	};
 };
 

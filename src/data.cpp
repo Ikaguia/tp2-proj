@@ -7,4 +7,9 @@ namespace grupoBatata{
 		if(uint(now->tm_mon) < mes or (uint(now->tm_mon) < mes and uint(now->tm_wday) < dia)) return now->tm_year - ano - 1;
 		return now->tm_year - ano;
 	}
+	bool data::operator<(const data &v) const{
+		if(ano != v.ano) return ano < v.ano;
+		if(mes != v.mes) return mes < v.mes;
+		return dia < v.dia;
+	}
 };

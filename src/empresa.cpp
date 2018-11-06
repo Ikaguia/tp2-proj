@@ -1,5 +1,6 @@
 #include <empresa.hpp>
-#include <empregado.hpp>
+#include <pessoa.hpp>
+#include <emprego.hpp>
 
 namespace grupoBatata{
 	const map<Tempresa::Esetor, set<Tpessoa::Equalificacao_tipo>> Tempresa::requisitos_setor = {
@@ -43,42 +44,41 @@ namespace grupoBatata{
 			Tpessoa::Equalificacao_tipo::eng_social
 		}}
 	};
+	TresourceManager<string, Tempresa> Tempresa::manager;
 
-	void Tempresa::addEmpregado(const Tempregado &empregado){ empregados[empregado.id] = empregado; }
-	void Tempresa::addEmpregado(const string &empregado){
-		Tempregado tmp(empregado);
-		if(empregados.count(tmp.id)){
-			string err = "Conflicting id numbers '" + to_string(tmp.id) + " with employees '" +
-				empregados[tmp.id].nome << "' '" + tmp.nome + "'";
-			throw invalid_argument(err);
+	//construtores / destrutores
+	Tempresa::Tempresa(const string &v):nome{v}{}
+	//getters
+	const map<Tpessoa, Temprego> &Tempresa::getEmpregos() const{ return empregados; }
+	Temprego &Tempresa::getEmprego(const Tpessoa &v){
+		if(not empregados.count(v)){
+			string error = string("Erro: get emprego para pessoa '") + v.nome + string("' na empresa '") + nome + string("' que não é empregada la.");
+			throw invalid_argument(error);
 		}
-		empregados[tmp.id] = tmp;
+		return empregados.at(v);
 	}
-	void Tempresa::removeEmpregado(const uint &id){ empregados.erase(id); }
-	Tempregado& Tempresa::getEmpregado(const uint &id){ return empregados[id]; }
-	string Tempresa::runCommand(const vector<string> &args){
-		uint commandID = stoi(args[0]);
-		switch(commandID){
-			case 0:
-				return "batata";
-			default:
-				return "Comando não implementado";
+	//setters
+	void Tempresa::setNome(const string &v){ the_nome = v; }
+	void Tempresa::setEmprego(const Tpessoa &v1, const Temprego &v2){
+		if(not empregados.count(v1)){
+			string error = string("Erro: set emprego para pessoa '") + v1.nome + string("' na empresa '") + nome + string("' que não é empregada la.");
+			throw invalid_argument(error);
 		}
-		return "";
+		empregados[v1] = v2;
 	}
-
-	void Tempresa::load_file(const string &filename){
-		ifstream input(filename);
-		string line;
-		while(getline(input, line)){
-			if(line.empty()) continue;
-			try{
-				addEmpregado(line);
-			}
-			catch(const exception &e){
-				cerr << "Error while reading from input file:" << endl << e.what() << endl << line << endl << endl;
-			}
+	//outros
+	void Tempresa::addEmpregado(const Tpessoa &v1, const Temprego &v2){
+		if(empregados.count(v1)){
+			string error = string("Erro: add emprego para pessoa '") + v1.nome + string("' na empresa '") + nome + string("' que já é empregada la.");
+			throw invalid_argument(error);
 		}
+		empregados[v1] = v2;
 	}
-
+	void Tempresa::delEmpregado(const Tpessoa &v){
+		if(not empregados.count(v)){
+			string error = string("Erro: del emprego para pessoa '") + v.nome + string("' na empresa '") + nome + string("' que não é empregada la.");
+			throw invalid_argument(error);
+		}
+		empregados.erase(v);
+	}
 };
