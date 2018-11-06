@@ -23,6 +23,16 @@ int rodaComando(const string &line){
 		while(getline(file, the_line)) rodaComando(the_line);
 		cout << "Arquivo '" << nome << "' carregado com sucesso." << endl;
 	}
+	else if(command == "salvaArquivo"){
+		string nome;
+		in >> nome;
+		ofstream file(string(DATA_PATH) + "/" + nome + ".data");
+		if(not file.is_open()){
+			cerr << "Falha ao executar comando 'salvaArquivo': falha ao abrir arquivo '" << nome << "'." << endl;
+			return 1;
+		}
+		file << out;
+	}
 	else if(command == "mostraPessoa"){
 		string nome;
 
