@@ -12,7 +12,8 @@ namespace grupoBatata{
 	class Temprego{
 	public:
 		//construtores / destrutores
-		// Temprego()=default;
+		Temprego();
+		Temprego(Tempresa::Esetor, Tempresa::Ecargo);
 		//getters
 		const data &entrada = the_entrada;
 		const uint &salario = the_salario;

@@ -8,6 +8,7 @@ namespace grupoBatata{
 		uint dia, mes, ano;
 		uint idade() const;
 		bool operator<(const data&) const;
+		static data hoje();
 	};
 };
 

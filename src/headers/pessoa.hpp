@@ -23,10 +23,14 @@ namespace grupoBatata{
 			eng_social
 		};
 		enum Equalificacao_nivel{
+			nenhum,
 			auxiliar,
 			tecnico,
 			profissional
 		};
+		static const map<string, Equalificacao_tipo> nome_qual_tipo;
+		static const map<string, Equalificacao_nivel> nome_qual_nivel;
+
 		//construtores / destrutores
 		// Tpessoa()=default;
 		Tpessoa(const string&);

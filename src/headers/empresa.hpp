@@ -28,6 +28,8 @@ namespace grupoBatata{
 			count
 		};
 		static const map<Esetor, set<Tpessoa::Equalificacao_tipo>> requisitos_setor;
+		static const map<string, Esetor> nome_setor;
+		static const map<string, Ecargo> nome_cargo;
 
 		//construtores / destrutores
 		Tempresa(const string&);
@@ -41,6 +43,7 @@ namespace grupoBatata{
 		//outros
 		void addEmpregado(const Tpessoa&, const Temprego&);
 		void delEmpregado(const Tpessoa&);
+		static Tpessoa::Equalificacao_nivel qualificacao_minima(Esetor, Ecargo);
 		//manager
 		static TresourceManager<string, Tempresa> manager;
 	private:

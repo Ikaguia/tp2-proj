@@ -12,4 +12,9 @@ namespace grupoBatata{
 		if(mes != v.mes) return mes < v.mes;
 		return dia < v.dia;
 	}
+	data data::hoje(){
+		time_t epoch_now = time(nullptr);
+		tm* now = localtime(&epoch_now);
+		return data{uint(now->tm_wday), uint(now->tm_mon), uint(now->tm_year)};
+	}
 };

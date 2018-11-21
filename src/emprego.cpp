@@ -2,6 +2,13 @@
 
 
 namespace grupoBatata{
+	Temprego::Temprego(){ setEntrada(data::hoje()); }
+	Temprego::Temprego(Tempresa::Esetor s, Tempresa::Ecargo c){
+		setEntrada(data::hoje());
+		setSetor(s);
+		setCargo(c);
+	}
+
 	void Temprego::setEntrada(const data &new_entrada){ the_entrada = new_entrada; }
 	void Temprego::setSalario(const uint &new_salario){ the_salario = new_salario; }
 	void Temprego::setSetor(const Tempresa::Esetor &new_setor){ the_setor = new_setor; }

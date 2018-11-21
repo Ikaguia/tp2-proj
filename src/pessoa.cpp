@@ -2,6 +2,27 @@
 #include <empresa.hpp>
 
 namespace grupoBatata{
+	const map<string, Tpessoa::Equalificacao_tipo> Tpessoa::nome_qual_tipo = {
+		{"administrador",		Tpessoa::Equalificacao_tipo::administrador},
+		{"contador",			Tpessoa::Equalificacao_tipo::contador},
+		{"economista",			Tpessoa::Equalificacao_tipo::economista},
+		{"comunicador_social",	Tpessoa::Equalificacao_tipo::comunicador_social},
+		{"mercadologos",		Tpessoa::Equalificacao_tipo::mercadologos},
+		{"eng_computacao",		Tpessoa::Equalificacao_tipo::eng_computacao},
+		{"eng_sistemas",		Tpessoa::Equalificacao_tipo::eng_sistemas},
+		{"eng_informacao",		Tpessoa::Equalificacao_tipo::eng_informacao},
+		{"advogado",			Tpessoa::Equalificacao_tipo::advogado},
+		{"design_grafico",		Tpessoa::Equalificacao_tipo::design_grafico},
+		{"design_multimidia",	Tpessoa::Equalificacao_tipo::design_multimidia},
+		{"eng_social",			Tpessoa::Equalificacao_tipo::eng_social},
+	};
+	const map<string, Tpessoa::Equalificacao_nivel> Tpessoa::nome_qual_nivel = {
+		{"auxiliar",	Tpessoa::Equalificacao_nivel::auxiliar},
+		{"tecnico",		Tpessoa::Equalificacao_nivel::tecnico},
+		{"profissional",Tpessoa::Equalificacao_nivel::profissional},
+	};
+
+
 	TresourceManager<string, Tpessoa> Tpessoa::manager;
 
 	//construtores / destrutores

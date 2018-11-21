@@ -1,3 +1,6 @@
-criaPessoa joao
+criaPessoa joao sexo 0 nascimento 1 11 111 cpf 1.11.111 qualificacao administrador auxiliar qualificacao advogado tecnico
+mostraPessoa joao
 criaEmpresa batata
-criaEmprego batata joao
+criaEmprego batata joao financas auxiliar administrador
+transfere batata joao
+batata

@@ -44,6 +44,23 @@ namespace grupoBatata{
 			Tpessoa::Equalificacao_tipo::eng_social
 		}}
 	};
+	const map<string, Tempresa::Esetor> Tempresa::nome_setor = {
+		{"financas",		Tempresa::Esetor::financas},
+		{"marketing",		Tempresa::Esetor::marketing},
+		{"tecnologia",		Tempresa::Esetor::tecnologia},
+		{"normatividade",	Tempresa::Esetor::normatividade},
+		{"design",			Tempresa::Esetor::design},
+		{"outro",			Tempresa::Esetor::outro},
+	};
+	const map<string, Tempresa::Ecargo> Tempresa::nome_cargo = {
+		{"auxiliar",			Tempresa::Ecargo::auxiliar},
+		{"tecnico",				Tempresa::Ecargo::tecnico},
+		{"profissional",		Tempresa::Ecargo::profissional},
+		{"diretor_setor",		Tempresa::Ecargo::diretor_setor},
+		{"diretor_operacoes",	Tempresa::Ecargo::diretor_operacoes},
+		{"diretor_exec",		Tempresa::Ecargo::diretor_exec},
+		{"count",				Tempresa::Ecargo::count},
+	};
 	TresourceManager<string, Tempresa> Tempresa::manager;
 
 	//construtores / destrutores
@@ -80,5 +97,9 @@ namespace grupoBatata{
 			throw invalid_argument(error);
 		}
 		empregados.erase(v);
+	}
+	Tpessoa::Equalificacao_nivel Tempresa::qualificacao_minima(Esetor, Ecargo){
+		//TODO
+		return Tpessoa::Equalificacao_nivel::nenhum;
 	}
 };
